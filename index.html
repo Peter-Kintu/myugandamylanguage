@@ -4,174 +4,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore Our Platforms</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #f4f7fc;
-      --bg-dark: #e1e7f0;
-      --primary-color: #3b82f6;
-      --secondary-color: #6366f1;
-      --accent-color: #f97316;
-      --text-color: #334155;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --bg-color-1: #0e0125;
+      --bg-color-2: #240a45;
+      --main-text-color: #ffffff;
+      --accent-pink: #ff1c91;
+      --accent-blue: #00d2ff;
+      --accent-yellow: #ffeb00;
     }
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-color);
-      background: var(--bg-light);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--main-text-color);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      background: var(--bg-color-1);
     }
 
-    .background-animations {
+    /* Animated background inspired by Spider-Verse glitch effects */
+    .background {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
       z-index: -1;
+      background:
+        radial-gradient(circle at 10% 20%, var(--bg-color-2) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, var(--bg-color-2) 0%, transparent 50%),
+        linear-gradient(45deg, #0f0a1c 25%, transparent 25%) -50px 0,
+        linear-gradient(-45deg, #0f0a1c 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, transparent 75%, #0f0a1c 75%),
+        linear-gradient(-45deg, transparent 75%, #0f0a1c 75%);
+      background-size: 100px 100px;
+      /* Super-fast animation for a frantic effect */
+      animation: move-bg 5s linear infinite;
     }
 
-    /* Subtle Animated Circles */
-    .circle {
+    /* Halftone pattern overlay */
+    .halftone-overlay {
       position: absolute;
-      background-color: var(--primary-color);
-      opacity: 0.1;
-      border-radius: 50%;
-      animation: pulse 6s ease-in-out infinite;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -0.5;
+      background: repeating-conic-gradient(var(--bg-color-1) 0% 10%, transparent 10% 20%);
+      opacity: 0.05;
+      pointer-events: none;
     }
 
-    .circle-1 { top: 10%; left: 15%; width: 150px; height: 150px; animation-delay: 0s; }
-    .circle-2 { bottom: 20%; right: 10%; width: 200px; height: 200px; animation-delay: 2s; }
-    .circle-3 { top: 40%; left: 50%; width: 100px; height: 100px; animation-delay: 4s; }
-    .circle-4 { bottom: 5%; left: 40%; width: 250px; height: 250px; animation-delay: 1s; }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.1; }
-      50% { transform: scale(1.1); opacity: 0.2; }
+    @keyframes move-bg {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; } /* Increased movement */
     }
 
     .main-container {
-      background: #fff;
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 500px;
-      width: 90%;
+      padding: 2rem;
       z-index: 1;
-      border: 1px solid var(--bg-dark);
-      transition: transform 0.3s ease;
-    }
-
-    .main-container:hover {
-      transform: translateY(-5px);
     }
 
     .title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
+      font-family: 'Bangers', cursive;
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 1;
+      color: var(--accent-pink);
+      text-shadow: 
+        0 0 10px var(--accent-pink),
+        0 0 20px var(--accent-pink),
+        -5px 5px 0 var(--accent-blue);
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      position: relative;
+      animation: neon-pulse 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon-pulse {
+      0% { text-shadow: 0 0 5px var(--accent-pink), -5px 5px 0 var(--accent-blue); }
+      100% { text-shadow: 0 0 20px var(--accent-pink), -8px 8px 0 var(--accent-blue); }
     }
 
     .subtitle {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #6b7280;
-      margin-bottom: 2.5rem;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      max-width: 600px;
+      margin-bottom: 3rem;
     }
 
     .btn-container {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .btn {
       display: block;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
+      width: clamp(250px, 80%, 400px);
+      padding: 1.2rem 2.5rem;
+      font-family: 'Bangers', cursive;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      border: 4px solid var(--accent-yellow);
       border-radius: 12px;
       text-decoration: none;
       text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-      color: #fff;
-      box-shadow: var(--shadow-md);
       position: relative;
-      overflow: hidden;
+      color: var(--bg-color-1);
+      background-color: var(--accent-yellow);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      box-shadow: 
+        5px 5px 0 var(--accent-pink),
+        -5px -5px 0 var(--accent-blue);
     }
 
-    /* Primary button with a subtle gradient */
-    .btn.primary {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border: 1px solid #3c5db1;
+    .btn:hover {
+      transform: scale(1.05) rotate(-2deg);
+      background-color: var(--accent-blue);
+      border-color: var(--accent-pink);
+      color: var(--main-text-color);
+      box-shadow: 
+        5px 5px 0 var(--accent-pink),
+        -5px -5px 0 var(--accent-yellow);
     }
 
-    .btn.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(60, 93, 177, 0.3);
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      transition: clip-path 0.3s;
     }
 
-    .btn.primary:active {
-      transform: translateY(0);
-      box-shadow: var(--shadow-md);
+    .btn:hover:before {
+      animation: glitch-shift 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
-    /* Secondary button */
-    .btn.secondary {
-      background-color: var(--accent-color);
-      border: 1px solid #d97706;
+    @keyframes glitch-shift {
+      0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+      20% { clip-path: polygon(0 0, 100% 0, 95% 50%, 5% 50%); }
+      40% { clip-path: polygon(5% 50%, 95% 50%, 100% 100%, 0% 100%); }
+      60% { clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%); }
+      80% { clip-path: polygon(20% 0, 80% 0, 80% 100%, 20% 100%); }
+      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
     }
 
-    .btn.secondary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(249, 115, 22, 0.3);
-      background-color: #ea580c;
+    .btn:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: -1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      transition: clip-path 0.3s;
     }
 
-    .btn.secondary:active {
-      transform: translateY(0);
-      box-shadow: var(--shadow-md);
+    .btn:hover:after {
+      animation: glitch-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
-    /* Icon within button */
-    .btn span {
-      margin-left: 0.5rem;
+    @keyframes glitch-shadow {
+      0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+      20% { clip-path: polygon(10% 0, 110% 0, 100% 100%, 0% 100%); }
+      40% { clip-path: polygon(0% 0, 100% 0, 90% 100%, -10% 100%); }
+      60% { clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); }
+      80% { clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); }
+      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
     }
+
   </style>
 </head>
 <body>
-  <div class="background-animations">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-    <div class="circle circle-4"></div>
-  </div>
+  <div class="background"></div>
+  <div class="halftone-overlay"></div>
 
   <div class="main-container">
-    <h1 class="title">Explore Our Platforms 🚀</h1>
-    <p class="subtitle">Discover innovative tools for learning and connection.</p>
+    <h1 class="title">Mwene Groups of Companies ltd</h1>
+    <p class="subtitle">Step into a new dimension of innovation.</p>
     <div class="btn-container">
-      <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn primary">
-        Uganda Languages Database
-        <span>&#127760;</span>
+      <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn">
+        UGANDA LANGUAGES DATABASE
       </a>
-      <a href="https://learnflow-ai-0fdz.onrender.com" target="_blank" class="btn secondary">
-        LearnFlow AI
-        <span>&#128218;</span>
+      <a href="https://learnflow-ai-0fdz.onrender.com" target="_blank" class="btn">
+        LEARNFLOW AI
       </a>
     </div>
   </div>
