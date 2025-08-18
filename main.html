@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Our Platforms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Ubuntu', sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .btn {
+      display: block;
+      width: 300px;
+      max-width: 90%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      border: none;
+      border-radius: 14px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <iframe class="video-bg"
+    src="https://www.youtube.com/embed/VRaulU7ZJRk?autoplay=1&mute=1&loop=1&playlist=VRaulU7ZJRk"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+
+  <!-- Buttons only -->
+  <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn">🌍 Uganda Languages Database</a>
+  <a href="https://learnflow-ai-0fdz.onrender.com" target="_blank" class="btn">🎓 LearnFlow AI</a>
+</body>
+</html>
