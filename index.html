@@ -13,6 +13,7 @@
       overflow: hidden;
       position: relative;
       height: 100vh;
+      background: linear-gradient(to top, #a0c4ff, #f0f8ff); /* Soft sky */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -20,17 +21,95 @@
       gap: 1rem;
     }
 
-    .video-bg {
-      position: fixed;
+    /* Realistic cloud shapes */
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.9;
+      box-shadow:
+        60px 20px 0 -15px #fff,
+        120px 40px 0 -30px #fff,
+        180px 20px 0 -15px #fff;
+      animation: moveClouds linear infinite;
+    }
+
+    @keyframes moveClouds {
+      0% { transform: translateX(-300px); }
+      100% { transform: translateX(100vw); }
+    }
+
+    .cloud:nth-child(1) {
+      top: 10%;
+      left: -300px;
+      width: 200px;
+      height: 60px;
+      animation-duration: 60s;
+    }
+
+    .cloud:nth-child(2) {
+      top: 30%;
+      left: -400px;
+      width: 250px;
+      height: 70px;
+      animation-duration: 90s;
+    }
+
+    .cloud:nth-child(3) {
+      top: 50%;
+      left: -350px;
+      width: 180px;
+      height: 50px;
+      animation-duration: 75s;
+    }
+
+    /* Raindrops */
+    .rain {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.3;
       pointer-events: none;
     }
 
+    .drop {
+      position: absolute;
+      bottom: 100%;
+      width: 2px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.6);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    /* Generate multiple drops */
+    .drop:nth-child(1)  { left: 10%; animation-duration: 1.5s; animation-delay: 0s; }
+    .drop:nth-child(2)  { left: 20%; animation-duration: 1.2s; animation-delay: 0.3s; }
+    .drop:nth-child(3)  { left: 30%; animation-duration: 1.8s; animation-delay: 0.6s; }
+    .drop:nth-child(4)  { left: 40%; animation-duration: 1.4s; animation-delay: 0.2s; }
+    .drop:nth-child(5)  { left: 50%; animation-duration: 1.6s; animation-delay: 0.5s; }
+    .drop:nth-child(6)  { left: 60%; animation-duration: 1.3s; animation-delay: 0.1s; }
+    .drop:nth-child(7)  { left: 70%; animation-duration: 1.7s; animation-delay: 0.4s; }
+    .drop:nth-child(8)  { left: 80%; animation-duration: 1.5s; animation-delay: 0.7s; }
+    .drop:nth-child(9)  { left: 90%; animation-duration: 1.2s; animation-delay: 0.3s; }
+    .drop:nth-child(10) { left: 95%; animation-duration: 1.6s; animation-delay: 0.6s; }
+
+    /* Buttons */
     .btn {
       display: block;
       width: 300px;
@@ -46,6 +125,7 @@
       text-align: center;
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 1;
     }
 
     .btn:hover {
@@ -55,13 +135,26 @@
   </style>
 </head>
 <body>
-  <!-- Background video -->
-  <iframe class="video-bg"
-    src="https://www.youtube.com/embed/VRaulU7ZJRk?autoplay=1&mute=1&loop=1&playlist=VRaulU7ZJRk"
-    frameborder="0"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
+  <!-- Realistic cloud background -->
+  <div class="clouds">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+
+  <!-- Raindrops -->
+  <div class="rain">
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+  </div>
 
   <!-- Buttons only -->
   <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn">🌍 Uganda Languages Database</a>
