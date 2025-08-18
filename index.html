@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mwene Groups of Companies ltd</title>
-  <!-- Retaining the bold Bangers and clean Montserrat fonts -->
+  <title>Explore Our Platforms</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -16,6 +15,8 @@
       --accent-pink: #ff1c91;
       --accent-blue: #00d2ff;
       --accent-yellow: #ffeb00;
+      /* New: Added a green accent color */
+      --accent-green: #00ff00;
     }
 
     body {
@@ -29,104 +30,27 @@
       min-height: 100vh;
       position: relative;
       overflow: hidden;
-      background-color: var(--bg-color-1);
-      /* Ensures smooth rendering for animations */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      background: var(--bg-color-1);
     }
 
-    /* Core background color and initial glow */
+    /* Animated background inspired by Spider-Verse glitch effects */
     .background {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -5;
-      background-color: var(--bg-color-1);
-      animation: glow-pulse 20s ease-in-out infinite alternate;
-    }
-
-    /* New: A liquid-like digital aurora effect */
-    .digital-aura {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -4;
-      background: radial-gradient(circle at 20% 80%, var(--accent-blue) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 20%, var(--accent-pink) 0%, transparent 60%);
-      opacity: 0.3;
-      filter: blur(50px);
-      animation: aura-move 30s linear infinite;
-      transition: transform 0.2s ease-out; /* Added for smooth parallax */
-    }
-
-    /* New: A subtle cosmic dust/particle effect */
-    .cosmic-dust {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -3;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle fill='rgba(255,255,255,0.1)' cx='20' cy='20' r='1'%3E%3C/circle%3E%3Ccircle fill='rgba(255,255,255,0.1)' cx='80' cy='80' r='1'%3E%3C/circle%3E%3Ccircle fill='rgba(255,255,255,0.1)' cx='50' cy='10' r='1'%3E%3C/circle%3E%3Ccircle fill='rgba(255,255,255,0.1)' cx='10' cy='90' r='1'%3E%3C/circle%3E%3Ccircle fill='rgba(255,255,255,0.1)' cx='90' cy='50' r='1'%3E%3C/circle%3E%3C/svg%3E");
-      background-size: 200px 200px;
-      animation: dust-flow 60s linear infinite;
-      transition: transform 0.2s ease-out; /* Added for smooth parallax */
-    }
-
-    /* A secondary, subtle background layer for depth */
-    .background-grid {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1.5;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      /* Adds a subtle zoom and rotation effect */
-      animation: grid-pulse 10s ease-in-out infinite alternate, grid-move 30s linear infinite;
-      transition: transform 0.2s ease-out; /* Added for smooth parallax */
-    }
-
-    /* A new layer with a "digital rain" effect */
-    .digital-rain {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1.2;
-      background-image: repeating-linear-gradient(
-        transparent,
-        transparent 50%,
-        rgba(0, 255, 255, 0.05) 50%,
-        rgba(0, 255, 255, 0.05) 100%
-      );
-      background-size: 100% 50px;
-      animation: digital-rain-anim 10s linear infinite;
-      transition: transform 0.2s ease-out; /* Added for smooth parallax */
-    }
-    
-    /* New: A scanline effect for a retro CRT feel */
-    .scanlines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        transparent 0,
-        rgba(0, 0, 0, 0.2) 1px,
-        transparent 2px
-      );
-      pointer-events: none;
-      z-index: 100;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 10% 20%, var(--bg-color-2) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, var(--bg-color-2) 0%, transparent 50%),
+        linear-gradient(45deg, #0f0a1c 25%, transparent 25%) -50px 0,
+        linear-gradient(-45deg, #0f0a1c 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, transparent 75%, #0f0a1c 75%),
+        linear-gradient(-45deg, transparent 75%, #0f0a1c 75%);
+      background-size: 100px 100px;
+      /* Super-fast animation for a frantic effect */
+      animation: move-bg 5s linear infinite;
     }
 
     /* Halftone pattern overlay */
@@ -136,97 +60,96 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -0.5;
       background: repeating-conic-gradient(var(--bg-color-1) 0% 10%, transparent 10% 20%);
-      opacity: 0.1;
+      opacity: 0.05;
       pointer-events: none;
-      animation: halftone-fade 8s ease-in-out infinite alternate;
-      transition: transform 0.2s ease-out; /* Added for smooth parallax */
     }
 
-    @keyframes glow-pulse {
-      0% { box-shadow: 0 0 100px var(--accent-pink) inset; }
-      100% { box-shadow: 0 0 150px var(--accent-blue) inset; }
-    }
-
-    @keyframes aura-move {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    @keyframes dust-flow {
+    @keyframes move-bg {
       0% { background-position: 0 0; }
-      100% { background-position: 500px 500px; }
-    }
-
-    @keyframes grid-pulse {
-      0% { opacity: 0.1; transform: scale(1); }
-      100% { opacity: 0.2; transform: scale(1.05); }
-    }
-
-    @keyframes grid-move {
-      0% { background-position: 0 0; }
-      100% { background-position: 100px 100px; }
-    }
-
-    @keyframes digital-rain-anim {
-      from { background-position-y: 0; }
-      to { background-position-y: 100%; }
-    }
-
-    @keyframes halftone-fade {
-      0% { opacity: 0.1; }
-      100% { opacity: 0.05; }
+      100% { background-position: 1000px 1000px; } /* Increased movement */
     }
 
     .main-container {
       text-align: center;
       padding: 2rem;
-      z-index: 10;
-      position: relative;
-      backdrop-filter: blur(5px);
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
 
-    /* Neon title effect with multiple shadow layers */
+    /* Neon title effect with multiple shadow layers and new glitch animation */
     .title {
       font-family: 'Bangers', cursive;
       font-size: clamp(3rem, 10vw, 6rem);
       line-height: 1;
       color: var(--accent-pink);
       text-shadow: 
-        0 0 5px var(--accent-pink),
-        0 0 15px var(--accent-pink),
-        0 0 25px var(--accent-pink),
-        -5px 5px 0 var(--accent-blue),
-        -10px 10px 0 var(--accent-yellow);
+        0 0 10px var(--accent-pink),
+        0 0 20px var(--accent-pink),
+        0 0 40px var(--accent-pink),
+        0 0 80px var(--accent-pink);
       letter-spacing: 2px;
       margin-bottom: 2rem;
       position: relative;
-      animation: 
-        neon-pulse 1.5s ease-in-out infinite alternate,
-        glitch-text 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+      /* Now using a single, more powerful glitch animation */
+      animation: glitch 1.5s linear infinite;
     }
 
-    /* Subtitle with a subtle glow */
+    /* New: A more impactful, multi-step glitch animation */
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      2% {
+        transform: translate(-5px, 5px);
+        text-shadow: 2px 2px 0 var(--accent-blue), -2px -2px 0 var(--accent-yellow);
+        opacity: 0.95;
+      }
+      4% {
+        transform: translate(5px, -5px);
+        text-shadow: -2px 2px 0 var(--accent-blue), 2px -2px 0 var(--accent-yellow);
+        opacity: 0.95;
+      }
+      6% {
+        transform: translate(0);
+        text-shadow: 0 0 10px var(--accent-pink);
+        opacity: 1;
+      }
+      /* Introduce more random glitch moments */
+      10% {
+        transform: translate(0);
+      }
+      11% {
+        transform: translate(5px, 0);
+        opacity: 0.9;
+      }
+      12% {
+        transform: translate(0, -5px);
+      }
+      13% {
+        transform: translate(-5px, 0);
+        opacity: 0.95;
+      }
+      14% {
+        transform: translate(0, 5px);
+        text-shadow: 5px 5px 0 var(--accent-blue), -5px -5px 0 var(--accent-yellow);
+      }
+      15% {
+        transform: translate(0);
+        text-shadow: 0 0 10px var(--accent-pink);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0);
+        text-shadow: 0 0 10px var(--accent-pink);
+        opacity: 1;
+      }
+    }
+
     .subtitle {
       font-size: clamp(1rem, 2vw, 1.5rem);
       max-width: 600px;
-      margin: 0 auto 3rem auto;
-      text-shadow: 0 0 5px var(--accent-blue);
-    }
-
-    /* Glitch text animation */
-    @keyframes glitch-text {
-      0% { transform: translate(0, 0); }
-      20% { transform: translate(-5px, 5px); }
-      40% { transform: translate(5px, -5px); }
-      60% { transform: translate(-3px, 3px); }
-      80% { transform: translate(3px, -3px); }
-      100% { transform: translate(0, 0); }
+      margin-bottom: 3rem;
     }
 
     .btn-container {
@@ -241,74 +164,109 @@
       padding: 1.2rem 2.5rem;
       font-family: 'Bangers', cursive;
       font-size: clamp(1.2rem, 3vw, 2rem);
-      border: 4px solid var(--accent-yellow);
+      /* Changed to green border and background */
+      border: 4px solid var(--accent-green);
       border-radius: 12px;
       text-decoration: none;
       text-align: center;
       position: relative;
       color: var(--bg-color-1);
-      background-color: var(--accent-yellow);
+      background-color: var(--accent-green);
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: pointer;
+      /* Changed to green/pink box shadow */
       box-shadow: 
         5px 5px 0 var(--accent-pink),
-        -5px -5px 0 var(--accent-blue),
-        inset 0 0 15px rgba(255, 255, 255, 0.3);
+        -5px -5px 0 var(--accent-green);
+      /* New continuous animation for the buttons */
+      animation: float-pulse 4s ease-in-out infinite alternate;
     }
 
     .btn:hover {
       transform: scale(1.05) rotate(-2deg);
-      background-color: var(--accent-blue);
+      /* Changed to pink hover background and border */
+      background-color: var(--accent-pink);
       border-color: var(--accent-pink);
       color: var(--main-text-color);
       box-shadow: 
-        8px 8px 0 var(--accent-pink),
-        -8px -8px 0 var(--accent-yellow),
-        0 0 20px var(--accent-blue); /* Adds a new glow effect */
+        5px 5px 0 var(--accent-pink),
+        -5px -5px 0 var(--accent-blue);
+      /* Stop the floating animation when hovered */
+      animation: none;
     }
 
-    /* This creates a vibrant "glitch" line on hover */
-    .btn::before {
+    /* New keyframes for the continuous button animation */
+    @keyframes float-pulse {
+      0% {
+        transform: translateY(0) rotate(0);
+        box-shadow: 
+          5px 5px 0 var(--accent-pink),
+          -5px -5px 0 var(--accent-green);
+      }
+      100% {
+        transform: translateY(-5px) rotate(1deg);
+        box-shadow: 
+          -5px -5px 0 var(--accent-pink),
+          5px 5px 0 var(--accent-blue);
+      }
+    }
+
+    .btn:before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 101%;
-      height: 101%;
-      background: linear-gradient(
-        45deg, 
-        transparent 0%, 
-        transparent 50%, 
-        var(--accent-blue) 50%, 
-        var(--accent-blue) 100%
-      );
-      background-size: 200% 200%;
-      opacity: 0;
-      z-index: 1;
-      border-radius: 12px;
-      transition: opacity 0.3s;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      transition: clip-path 0.3s;
     }
 
-    .btn:hover::before {
-      opacity: 1;
-      animation: glitch-line-anim 0.5s linear infinite alternate;
+    .btn:hover:before {
+      animation: glitch-shift 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
-    @keyframes glitch-line-anim {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 100%; }
+    @keyframes glitch-shift {
+      0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+      20% { clip-path: polygon(0 0, 100% 0, 95% 50%, 5% 50%); }
+      40% { clip-path: polygon(5% 50%, 95% 50%, 100% 100%, 0% 100%); }
+      60% { clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%); }
+      80% { clip-path: polygon(20% 0, 80% 0, 80% 100%, 20% 100%); }
+      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
     }
+
+    .btn:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: -1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      transition: clip-path 0.3s;
+    }
+
+    .btn:hover:after {
+      animation: glitch-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    @keyframes glitch-shadow {
+      0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+      20% { clip-path: polygon(10% 0, 110% 0, 100% 100%, 0% 100%); }
+      40% { clip-path: polygon(0% 0, 100% 0, 90% 100%, -10% 100%); }
+      60% { clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); }
+      80% { clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); }
+      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+    }
+
   </style>
 </head>
 <body>
-  <!-- Multiple background layers for a richer effect -->
   <div class="background"></div>
-  <div class="digital-aura"></div>
-  <div class="cosmic-dust"></div>
-  <div class="background-grid"></div>
-  <div class="digital-rain"></div>
   <div class="halftone-overlay"></div>
-  <div class="scanlines"></div>
 
   <div class="main-container">
     <h1 class="title">Mwene Groups of Companies ltd</h1>
@@ -322,34 +280,5 @@
       </a>
     </div>
   </div>
-
-  <script>
-    // Get all the background layers we want to move
-    const aura = document.querySelector('.digital-aura');
-    const dust = document.querySelector('.cosmic-dust');
-    const grid = document.querySelector('.background-grid');
-    const rain = document.querySelector('.digital-rain');
-    const halftone = document.querySelector('.halftone-overlay');
-
-    // Listen for mouse movement on the entire document
-    document.addEventListener('mousemove', (e) => {
-        // Get the viewport dimensions
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-
-        // Calculate the mouse position relative to the center of the viewport
-        // The values will be from -50 to 50 for both X and Y
-        const mouseX = (e.clientX / viewportWidth - 0.5) * 100;
-        const mouseY = (e.clientY / viewportHeight - 0.5) * 100;
-
-        // Apply a transform to each layer based on its z-index (distance)
-        // The further back a layer is (lower z-index), the less it should move
-        aura.style.transform = `translate(${mouseX * 0.5}px, ${mouseY * 0.5}px)`;
-        dust.style.transform = `translate(${mouseX * 0.3}px, ${mouseY * 0.3}px)`;
-        grid.style.transform = `translate(${mouseX * 0.15}px, ${mouseY * 0.15}px)`;
-        rain.style.transform = `translate(${mouseX * 0.1}px, ${mouseY * 0.1}px)`;
-        halftone.style.transform = `translate(${mouseX * 0.05}px, ${mouseY * 0.05}px)`;
-    });
-  </script>
 </body>
 </html>
