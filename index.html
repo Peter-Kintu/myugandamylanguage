@@ -4,160 +4,176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore Our Platforms</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-light: #f4f7fc;
+      --bg-dark: #e1e7f0;
+      --primary-color: #3b82f6;
+      --secondary-color: #6366f1;
+      --accent-color: #f97316;
+      --text-color: #334155;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
     body {
       margin: 0;
-      font-family: 'Ubuntu', sans-serif;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-      height: 100vh;
-      background: linear-gradient(to top, #a0c4ff, #f0f8ff); /* Soft sky */
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background: var(--bg-light);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
 
-    /* Realistic cloud shapes */
-    .clouds {
+    .background-animations {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -2;
-    }
-
-    .cloud {
-      position: absolute;
-      background: #fff;
-      border-radius: 50%;
-      opacity: 0.9;
-      box-shadow:
-        60px 20px 0 -15px #fff,
-        120px 40px 0 -30px #fff,
-        180px 20px 0 -15px #fff;
-      animation: moveClouds linear infinite;
-    }
-
-    @keyframes moveClouds {
-      0% { transform: translateX(-300px); }
-      100% { transform: translateX(100vw); }
-    }
-
-    .cloud:nth-child(1) {
-      top: 10%;
-      left: -300px;
-      width: 200px;
-      height: 60px;
-      animation-duration: 60s;
-    }
-
-    .cloud:nth-child(2) {
-      top: 30%;
-      left: -400px;
-      width: 250px;
-      height: 70px;
-      animation-duration: 90s;
-    }
-
-    .cloud:nth-child(3) {
-      top: 50%;
-      left: -350px;
-      width: 180px;
-      height: 50px;
-      animation-duration: 75s;
-    }
-
-    /* Raindrops */
-    .rain {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
       pointer-events: none;
+      z-index: -1;
     }
 
-    .drop {
+    /* Subtle Animated Circles */
+    .circle {
       position: absolute;
-      bottom: 100%;
-      width: 2px;
-      height: 15px;
-      background: rgba(255, 255, 255, 0.6);
-      animation: fall linear infinite;
+      background-color: var(--primary-color);
+      opacity: 0.1;
+      border-radius: 50%;
+      animation: pulse 6s ease-in-out infinite;
     }
 
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+    .circle-1 { top: 10%; left: 15%; width: 150px; height: 150px; animation-delay: 0s; }
+    .circle-2 { bottom: 20%; right: 10%; width: 200px; height: 200px; animation-delay: 2s; }
+    .circle-3 { top: 40%; left: 50%; width: 100px; height: 100px; animation-delay: 4s; }
+    .circle-4 { bottom: 5%; left: 40%; width: 250px; height: 250px; animation-delay: 1s; }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.1; }
+      50% { transform: scale(1.1); opacity: 0.2; }
     }
 
-    /* Generate multiple drops */
-    .drop:nth-child(1)  { left: 10%; animation-duration: 1.5s; animation-delay: 0s; }
-    .drop:nth-child(2)  { left: 20%; animation-duration: 1.2s; animation-delay: 0.3s; }
-    .drop:nth-child(3)  { left: 30%; animation-duration: 1.8s; animation-delay: 0.6s; }
-    .drop:nth-child(4)  { left: 40%; animation-duration: 1.4s; animation-delay: 0.2s; }
-    .drop:nth-child(5)  { left: 50%; animation-duration: 1.6s; animation-delay: 0.5s; }
-    .drop:nth-child(6)  { left: 60%; animation-duration: 1.3s; animation-delay: 0.1s; }
-    .drop:nth-child(7)  { left: 70%; animation-duration: 1.7s; animation-delay: 0.4s; }
-    .drop:nth-child(8)  { left: 80%; animation-duration: 1.5s; animation-delay: 0.7s; }
-    .drop:nth-child(9)  { left: 90%; animation-duration: 1.2s; animation-delay: 0.3s; }
-    .drop:nth-child(10) { left: 95%; animation-duration: 1.6s; animation-delay: 0.6s; }
+    .main-container {
+      background: #fff;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      z-index: 1;
+      border: 1px solid var(--bg-dark);
+      transition: transform 0.3s ease;
+    }
 
-    /* Buttons */
+    .main-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
     .btn {
       display: block;
-      width: 300px;
-      max-width: 90%;
-      padding: 1rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(135deg, #ff6a00, #ee0979);
-      border: none;
-      border-radius: 14px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
       text-decoration: none;
       text-align: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      z-index: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+      color: #fff;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    /* Primary button with a subtle gradient */
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border: 1px solid #3c5db1;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(60, 93, 177, 0.3);
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    }
+
+    .btn.primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Secondary button */
+    .btn.secondary {
+      background-color: var(--accent-color);
+      border: 1px solid #d97706;
+    }
+
+    .btn.secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(249, 115, 22, 0.3);
+      background-color: #ea580c;
+    }
+
+    .btn.secondary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Icon within button */
+    .btn span {
+      margin-left: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <!-- Realistic cloud background -->
-  <div class="clouds">
-    <div class="cloud"></div>
-    <div class="cloud"></div>
-    <div class="cloud"></div>
+  <div class="background-animations">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
   </div>
 
-  <!-- Raindrops -->
-  <div class="rain">
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
+  <div class="main-container">
+    <h1 class="title">Explore Our Platforms 🚀</h1>
+    <p class="subtitle">Discover innovative tools for learning and connection.</p>
+    <div class="btn-container">
+      <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn primary">
+        Uganda Languages Database
+        <span>&#127760;</span>
+      </a>
+      <a href="https://learnflow-ai-0fdz.onrender.com" target="_blank" class="btn secondary">
+        LearnFlow AI
+        <span>&#128218;</span>
+      </a>
+    </div>
   </div>
-
-  <!-- Buttons only -->
-  <a href="https://uganda-languges-database.onrender.com" target="_blank" class="btn">🌍 Uganda Languages Database</a>
-  <a href="https://learnflow-ai-0fdz.onrender.com" target="_blank" class="btn">🎓 LearnFlow AI</a>
 </body>
 </html>
